@@ -1,0 +1,87 @@
+1.取消a的默认样式
+	/*包含以下五种的链接*/
+	a {
+	    text-decoration: none;
+	}
+	/*正常的未被访问过的链接*/
+	a:link {
+	    text-decoration: none;
+	}
+	/*已经访问过的链接*/
+	a:visited {
+ 	   text-decoration: none;
+	}
+	/*鼠标划过(停留)的链接*/
+	a:hover {
+  	  text-decoration: none;
+	}
+	/* 正在点击的链接，鼠标在元素上按下还没有松开*/
+	a:active {
+	    text-decoration: none;
+	}
+	/* 获得焦点的时候 鼠标松开时显示的颜色*/
+	a:focus {
+   	 text-decoration: none;}
+2.取消inlin-block的默认边距
+	父级元素设置font-size为0
+
+3.数字转换时间
+    Date.prototype.toLocaleString = function() {
+    let year = this.getFullYear();
+    let Month = this.getMonth()+1;
+    let Date = this.getDate();
+    let Hours = this.getHours();
+    let Minutes = this.getMinutes();
+    let Seconds = this.getSeconds();
+    if (Month<10){
+        Month = "0"+Month;
+    }
+    if (Date<10){
+        Date = "0"+Date;
+    }
+    if (Hours<10){
+        Hours = "0"+Hours;
+    }
+    if (Minutes<10){
+        Minutes = "0"+Minutes;
+    }
+    if (Seconds<10){
+        Seconds = "0"+Seconds;
+    }
+    return year + "-" + Month + "-" + Date + " " + Hours + ":" + Minutes + ":" + Seconds;
+};
+
+4.（小程序）阻止子元素冒泡触发父元素
+	在子元素点击的时候使用catch：tap代替bind：tap
+
+5.快速安装package.json里的依赖
+	npm一键安装package.json里的所有依赖文件（npm install）
+	只安装package.json里的dependencies（运行依赖）文件（npm install --dependencies）
+	只安装package.json里的devDependencies（开发依赖）文件（npm install --devDependencies）	
+
+6.多行文本显示省略号
+  overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+7.箭头函数
+	如果只有一行可以不加{}，
+	如果不只一行的时候需要加{}，并且在{}内用return返回值
+
+8.字母转ascll和ascll转字母
+	str="A";
+　　	code = str.charCodeAt();//65
+　　	str2 = String.fromCharCode(code);//A
+9.eslint格式化代码
+ npm run lint --fix
+
+10小程序的三元表达式嵌套
+{{(item == 2)?'seat_disable':((item == 0)?'seat_none':'seat_choosed')}}
+
+11.（表单验证）正则表达式必须是正整数
+/[^0-9]/g.test(value);"是正整数就返回false，不是则返回true"
+
+12.小程序开发向上一页面库拿数据拿不到数据，显示undefined
+将eventChannel.on('acceptDataFromOpenerPage', (id) => {}）装到promise里运行，阻塞一下程序
